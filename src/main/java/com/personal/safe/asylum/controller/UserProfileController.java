@@ -69,7 +69,7 @@ public class UserProfileController {
 	public Mono<UserProfile> searchUserProfile(@RequestBody UserProfile userProfile) {
 		return userProfileService.serachUserProfile(userProfile);
 	}
-
+	
 	@GetMapping("/userProfiles/{id}")
 	public Mono<ResponseEntity<UserProfile>> getUserProfileById(@PathVariable(value = "id") String userProfileId) {
 
