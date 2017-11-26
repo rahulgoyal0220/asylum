@@ -22,6 +22,8 @@ public class UserProfile {
 	private String emailId;
 
 	private HashMap<AddressType, Address> addresses;
+	
+	private String faceId;
 
 	public UserProfile() {
 
@@ -136,5 +138,19 @@ public class UserProfile {
 	 */
 	public void setAddresses(HashMap<AddressType, Address> addresses) {
 		this.addresses = addresses;
+	}
+
+	/**
+	 * @return the faceId
+	 */
+	public String getFaceId() {
+		return faceId;
+	}
+
+	/**
+	 * @param faceId the faceId to set
+	 */
+	public void setFaceId(String faceId) {
+		this.faceId = faceId;
 	}
 }

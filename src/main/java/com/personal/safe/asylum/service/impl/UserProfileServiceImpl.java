@@ -20,9 +20,12 @@ public class UserProfileServiceImpl implements UserProfileService {
 	}
 
 	public Mono<UserProfile> serachUserProfile(UserProfile userProfile) {
-		Mono<UserProfile> fectchedUserProfile = userProfileRepository.findByEmailId(userProfile.getEmailId());
+		Mono<UserProfile> fectchedUserProfile = userProfileRepository.findByFaceId(userProfile.getFaceId());
 		if (fectchedUserProfile == null) {
 			fectchedUserProfile = userProfileRepository.findByCellNumber(userProfile.getCell_number());
+		}
+		if (fectchedUserProfile == null) {
+			fectchedUserProfile = userProfileRepository.findByEmailId(userProfile.getEmailId());
 		}
 
 		return fectchedUserProfile;

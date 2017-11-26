@@ -1,4 +1,4 @@
-package com.personal.safe.asylum.security;
+package com.personal.safe.asylum.config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConnectorConfig {
 
-	/*@Bean
+		/*@Bean
 	public EmbeddedServletContainerFactory servletContainer() {
 		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
 			@Override

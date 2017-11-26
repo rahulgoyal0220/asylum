@@ -14,4 +14,6 @@ public interface UserProfileRepository extends ReactiveMongoRepository<UserProfi
 
 	@Query("{ 'cell_number' : ?0 }")
 	Mono<UserProfile> findByCellNumber(String number);
+
+	Mono<UserProfile> findByFaceId(String faceId);
 }
