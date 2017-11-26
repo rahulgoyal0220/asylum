@@ -22,8 +22,10 @@ public class UserProfile {
 	private String emailId;
 
 	private HashMap<AddressType, Address> addresses;
-	
+
 	private String faceId;
+
+	private String gender;
 
 	public UserProfile() {
 
@@ -68,7 +70,6 @@ public class UserProfile {
 		this.name = name;
 	}
 
-	
 	/**
 	 * @return the cell_number
 	 */
@@ -77,7 +78,8 @@ public class UserProfile {
 	}
 
 	/**
-	 * @param cell_number the cell_number to set
+	 * @param cell_number
+	 *            the cell_number to set
 	 */
 	public void setCell_number(String cell_number) {
 		this.cell_number = cell_number;
@@ -91,12 +93,13 @@ public class UserProfile {
 	}
 
 	/**
-	 * @param residential_number the residential_number to set
+	 * @param residential_number
+	 *            the residential_number to set
 	 */
 	public void setResidential_number(String residential_number) {
 		this.residential_number = residential_number;
 	}
-	
+
 	/**
 	 * @return the date_of_birth
 	 */
@@ -105,7 +108,8 @@ public class UserProfile {
 	}
 
 	/**
-	 * @param date_of_birth the date_of_birth to set
+	 * @param date_of_birth
+	 *            the date_of_birth to set
 	 */
 	public void setDate_of_birth(String date_of_birth) {
 		this.date_of_birth = date_of_birth;
@@ -119,7 +123,8 @@ public class UserProfile {
 	}
 
 	/**
-	 * @param emailId the emailId to set
+	 * @param emailId
+	 *            the emailId to set
 	 */
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
@@ -148,9 +153,26 @@ public class UserProfile {
 	}
 
 	/**
-	 * @param faceId the faceId to set
+	 * @param faceId
+	 *            the faceId to set
 	 */
 	public void setFaceId(String faceId) {
 		this.faceId = faceId;
 	}
+
+	/**
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+
+	/**
+	 * @param gender
+	 *            the gender to set
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 }
