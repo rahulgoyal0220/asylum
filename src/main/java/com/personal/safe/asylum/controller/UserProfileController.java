@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.personal.safe.asylum.entity.UserProfile;
 import com.personal.safe.asylum.repository.UserProfileRepository;
+import com.personal.safe.asylum.service.UserProfileService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -23,6 +24,9 @@ public class UserProfileController {
 
 	@Autowired
 	private UserProfileRepository userProfileRepository;
+	
+	@Autowired
+	private UserProfileService userProfileService;
 
 	@GetMapping("/userProfiles")
 	public Flux<UserProfile> getAllUsers() {
@@ -31,7 +35,7 @@ public class UserProfileController {
 
 	@PostMapping("/userProfiles")
 	public Mono<UserProfile> createUserProfile(@Valid @RequestBody UserProfile userProfile) {
-		return userProfileRepository.save(userProfile);
+		return userProfileService.save(userProfile);
 	}
 
 	@GetMapping("/userProfiles/{id}")

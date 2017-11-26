@@ -24,14 +24,19 @@ public class UserProfile {
 
 	private HashMap<AddressType, Address> addresses;
 
-	public UserProfile(String name, Integer cell_number, Integer residential_number, Date date_of_birth, String emailId) {
+	public UserProfile() {
+
+	}
+
+	public UserProfile(String name, Integer cell_number, Integer residential_number, Date date_of_birth,
+			String emailId) {
 		this.name = name;
 		this.cell_number = cell_number;
-		this.residential_number= residential_number;
+		this.residential_number = residential_number;
 		this.date_of_birth = date_of_birth;
 		this.emailId = emailId;
 	}
-	
+
 	/**
 	 * @return the id
 	 */
