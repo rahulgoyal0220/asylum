@@ -10,4 +10,9 @@ public interface UserProfileService {
 	
 	
 	Mono<UserProfile> serachUserProfile(UserProfile userProfile);
+
+	Mono<UserProfile> update(String id, UserProfile userProfile);
+	
+	Mono<UserProfile> verify(String id, String token);
+	
 }

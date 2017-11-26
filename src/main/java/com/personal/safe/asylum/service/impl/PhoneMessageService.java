@@ -10,8 +10,8 @@ import com.twilio.sdk.type.PhoneNumber;
 @Component
 public class PhoneMessageService {
 
-	public static final String ACCOUNT_SID = "AC1af918078b68e4e68a909497360d2c5c";
-	public static final String AUTH_TOKEN = "621ca4a4528fb2ae7248effe2482dd64";
+	public static final String ACCOUNT_SID = "ACCOUNT_SID";
+	public static final String AUTH_TOKEN = "AUTH_TOKEN";
 	public static final String TWILIO_NUMBER = "+15796000867";
 
 	public void sendSMS(String to, String body) {

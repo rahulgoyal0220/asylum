@@ -14,8 +14,11 @@ import reactor.core.publisher.Mono;
 @Configuration
 public class UserProfileServiceImpl implements UserProfileService {
 
-	public StringBuilder message = new StringBuilder(
+	public StringBuilder createMessage = new StringBuilder(
 			"Congratulation's you have been succefully registerd. Please provide the following code to confirm your registration.\n Authorization Code : ");
+	
+	public StringBuilder updateMessage = new StringBuilder(
+			"Congratulation's you have been succefully Identified. Please provide the following code to confirm validate your details.\n Authorization Code : ");
 
 	@Autowired
 	private UserProfileRepository userProfileRepository;
@@ -29,9 +32,9 @@ public class UserProfileServiceImpl implements UserProfileService {
 	public Mono<UserProfile> save(UserProfile userProfile) {
 		Mono<UserProfile> savedUserProfile = userProfileRepository.save(userProfile);
 		if (savedUserProfile != null) {
-			message.append(generateRandomNumber());
-			emailService.prepareAndSend(userProfile.getEmailId(), message.toString());
-			phoneMessageService.sendSMS(userProfile.getCell_number(), message.toString());
+			createMessage.append(generateRandomNumber());
+			emailService.prepareAndSend(userProfile.getEmailId(), createMessage.toString());
+			phoneMessageService.sendSMS(userProfile.getCell_number(), createMessage.toString());
 		}
 
 		return savedUserProfile;
@@ -51,5 +54,32 @@ public class UserProfileServiceImpl implements UserProfileService {
 
 	private int generateRandomNumber() {
 		return (new Random()).nextInt(900000) + 100000;
+	}
+
+	public Mono<UserProfile> update(String id, UserProfile userProfile) {
+		Mono<UserProfile> fectchedUserProfile = userProfileRepository.findById(id);
+
+		UserProfile profile = fectchedUserProfile.block();
+
+		profile.setAddresses(userProfile.getAddresses());
+		profile.setName(userProfile.getName());
+		profile.setGender(userProfile.getGender());
+		profile.setEmailId(userProfile.getEmailId());
+		profile.setCell_number(userProfile.getCell_number());
+		profile.setFaceId(userProfile.getFaceId());
+
+		fectchedUserProfile = userProfileRepository.save(profile);
+
+		if (fectchedUserProfile != null) {
+			updateMessage.append(generateRandomNumber());
+			emailService.prepareAndSend(userProfile.getEmailId(), updateMessage.toString());
+			phoneMessageService.sendSMS(userProfile.getCell_number(), updateMessage.toString());
+		}
+		return fectchedUserProfile;
+	}
+
+	public Mono<UserProfile> verify(String id, String token) {
+		Mono<UserProfile> fectchedUserProfile = userProfileRepository.findById(id);
+		return fectchedUserProfile;
 	}
 }

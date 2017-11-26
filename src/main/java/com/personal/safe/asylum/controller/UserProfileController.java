@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -69,7 +70,27 @@ public class UserProfileController {
 	public Mono<UserProfile> searchUserProfile(@RequestBody UserProfile userProfile) {
 		return userProfileService.serachUserProfile(userProfile);
 	}
-	
+
+	@PutMapping("/userProfiles/{id}")
+	public Mono<ResponseEntity<UserProfile>> update(@PathVariable(value = "id") String userProfileId,
+			@RequestBody UserProfile userProfile) {
+
+		return userProfileService.update(userProfileId, userProfile)
+				.map(savedUserProfile -> ResponseEntity.ok(savedUserProfile))
+				.defaultIfEmpty(ResponseEntity.notFound().build());
+
+	}
+
+	@PutMapping("/userProfiles/{id}/verify/{code}")
+	public Mono<ResponseEntity<UserProfile>> verify(@PathVariable(value = "id") String userProfileId,
+			@PathVariable(value = "code") String code) {
+
+		return userProfileService.verify(userProfileId, code)
+				.map(savedUserProfile -> ResponseEntity.ok(savedUserProfile))
+				.defaultIfEmpty(ResponseEntity.notFound().build());
+
+	}
+
 	@GetMapping("/userProfiles/{id}")
 	public Mono<ResponseEntity<UserProfile>> getUserProfileById(@PathVariable(value = "id") String userProfileId) {
 
