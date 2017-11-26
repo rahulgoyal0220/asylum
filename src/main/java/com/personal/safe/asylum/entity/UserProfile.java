@@ -1,6 +1,5 @@
 package com.personal.safe.asylum.entity;
 
-import java.util.Date;
 import java.util.HashMap;
 
 import org.springframework.data.annotation.Id;
@@ -18,7 +17,7 @@ public class UserProfile {
 
 	private String residential_number;
 
-	private Date date_of_birth;
+	private String date_of_birth;
 
 	private String emailId;
 
@@ -28,7 +27,7 @@ public class UserProfile {
 
 	}
 
-	public UserProfile(String name, String cell_number, String residential_number, Date date_of_birth,
+	public UserProfile(String name, String cell_number, String residential_number, String date_of_birth,
 			String emailId) {
 		this.name = name;
 		this.cell_number = cell_number;
@@ -95,24 +94,21 @@ public class UserProfile {
 	public void setResidential_number(String residential_number) {
 		this.residential_number = residential_number;
 	}
-
+	
 	/**
 	 * @return the date_of_birth
 	 */
-	public Date getDate_of_birth() {
+	public String getDate_of_birth() {
 		return date_of_birth;
 	}
 
 	/**
-	 * @param date_of_birth
-	 *            the date_of_birth to set
+	 * @param date_of_birth the date_of_birth to set
 	 */
-	public void setDate_of_birth(Date date_of_birth) {
+	public void setDate_of_birth(String date_of_birth) {
 		this.date_of_birth = date_of_birth;
 	}
 
-	
-	
 	/**
 	 * @return the emailId
 	 */
