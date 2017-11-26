@@ -24,7 +24,7 @@ public class UserProfileController {
 
 	@Autowired
 	private UserProfileRepository userProfileRepository;
-	
+
 	@Autowired
 	private UserProfileService userProfileService;
 
@@ -36,6 +36,11 @@ public class UserProfileController {
 	@PostMapping("/userProfiles")
 	public Mono<UserProfile> createUserProfile(@Valid @RequestBody UserProfile userProfile) {
 		return userProfileService.save(userProfile);
+	}
+
+	@PostMapping("/userProfiles/search")
+	public Mono<UserProfile> searchUserProfile(@RequestBody UserProfile userProfile) {
+		return userProfileService.serachUserProfile(userProfile);
 	}
 
 	@GetMapping("/userProfiles/{id}")

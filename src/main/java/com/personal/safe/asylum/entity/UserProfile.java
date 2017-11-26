@@ -14,9 +14,9 @@ public class UserProfile {
 
 	private String name;
 
-	private Integer cell_number;
+	private String cell_number;
 
-	private Integer residential_number;
+	private String residential_number;
 
 	private Date date_of_birth;
 
@@ -28,7 +28,7 @@ public class UserProfile {
 
 	}
 
-	public UserProfile(String name, Integer cell_number, Integer residential_number, Date date_of_birth,
+	public UserProfile(String name, String cell_number, String residential_number, Date date_of_birth,
 			String emailId) {
 		this.name = name;
 		this.cell_number = cell_number;
@@ -67,33 +67,32 @@ public class UserProfile {
 		this.name = name;
 	}
 
+	
 	/**
 	 * @return the cell_number
 	 */
-	public Integer getCell_number() {
+	public String getCell_number() {
 		return cell_number;
 	}
 
 	/**
-	 * @param cell_number
-	 *            the cell_number to set
+	 * @param cell_number the cell_number to set
 	 */
-	public void setCell_number(Integer cell_number) {
+	public void setCell_number(String cell_number) {
 		this.cell_number = cell_number;
 	}
 
 	/**
 	 * @return the residential_number
 	 */
-	public Integer getResidential_number() {
+	public String getResidential_number() {
 		return residential_number;
 	}
 
 	/**
-	 * @param residential_number
-	 *            the residential_number to set
+	 * @param residential_number the residential_number to set
 	 */
-	public void setResidential_number(Integer residential_number) {
+	public void setResidential_number(String residential_number) {
 		this.residential_number = residential_number;
 	}
 
@@ -112,6 +111,8 @@ public class UserProfile {
 		this.date_of_birth = date_of_birth;
 	}
 
+	
+	
 	/**
 	 * @return the emailId
 	 */
@@ -120,8 +121,7 @@ public class UserProfile {
 	}
 
 	/**
-	 * @param emailId
-	 *            the emailId to set
+	 * @param emailId the emailId to set
 	 */
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;

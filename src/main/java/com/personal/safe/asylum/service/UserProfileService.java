@@ -7,4 +7,7 @@ import reactor.core.publisher.Mono;
 public interface UserProfileService {
 
 	Mono<UserProfile> save(UserProfile userProfile);
+	
+	
+	Mono<UserProfile> serachUserProfile(UserProfile userProfile);
 }

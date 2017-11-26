@@ -14,9 +14,18 @@ public class UserProfileServiceImpl implements UserProfileService {
 
 	@Autowired
 	private UserProfileRepository userProfileRepository;
-	
+
 	public Mono<UserProfile> save(UserProfile userProfile) {
 		return userProfileRepository.save(userProfile);
+	}
+
+	public Mono<UserProfile> serachUserProfile(UserProfile userProfile) {
+		Mono<UserProfile> fectchedUserProfile = userProfileRepository.findByEmailId(userProfile.getEmailId());
+		if (fectchedUserProfile == null) {
+			fectchedUserProfile = userProfileRepository.findByCellNumber(userProfile.getCell_number());
+		}
+
+		return fectchedUserProfile;
 	}
 
 }
